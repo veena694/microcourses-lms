@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Book, User, CheckCircle, Clock, Award, Users, FileText, AlertCircle } from 'lucide-react';
 import './App.css';
 
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE =
+  process.env.NODE_ENV === "production"
+    ? "https://microcourses-lms-3.onrender.com/api" // your Render backend
+    : "http://localhost:3000/api";
+
 
 // Utility function for API calls
 const apiCall = async (endpoint, options = {}) => {
