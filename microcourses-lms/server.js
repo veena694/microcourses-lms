@@ -12,6 +12,10 @@ const JWT_SECRET = 'your-secret-key-change-in-production';
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(cors({
+  origin: ['https://microcourses-lms-4.onrender.com'],
+  credentials: true
+}));
 
 
 // Rate limiting store
