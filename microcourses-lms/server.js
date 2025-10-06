@@ -18,7 +18,8 @@ app.use(express.json());
 const rateLimitStore = new Map();
 
 // Initialize Database
-const db = new sqlite3.Database(':memory:', (err) => {
+const db = new sqlite3.Database('./database.sqlite', (err) => {
+
   if (err) console.error('Database error:', err);
   else console.log('Connected to SQLite database');
 });
