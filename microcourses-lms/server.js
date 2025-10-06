@@ -6,7 +6,7 @@ const crypto = require('crypto');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const JWT_SECRET = 'your-secret-key-change-in-production';
 
 // Middleware
@@ -697,6 +697,6 @@ app.post('/api/admin/courses/:id/review', authenticate, requireRole('admin'), id
 app.use(express.static('public'));
 // Start server
 app.listen(PORT, () => {
-  console.log(`MicroCourses API running on http://localhost:${PORT}`);
+   console.log(`MicroCourses API running on port ${PORT}`);
   console.log(`Health check: http://localhost:${PORT}/api/health`);
 });
